@@ -6,7 +6,7 @@ import { isAuthenticated } from "../api/auth/signin/route";
 
 const Layout = async ({ children }: { children: ReactNode }) => {
   const isUserAuthenticated = await isAuthenticated();
-  if (!isUserAuthenticated) redirect("/sign-in");
+  if (!isUserAuthenticated) redirect("/signin");
 
   return (
     <div className="root-layout">
