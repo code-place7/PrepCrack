@@ -4,21 +4,25 @@ import { z } from "zod";
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "sonner";
-// import { auth } from "@/firebase/client";
+import { app } from "@/firebase/client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-// import {
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-// } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getAuth,
+} from "firebase/auth";
 
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 
-// import { signIn, signUp } from "@/lib/actions/auth.action";
-import FormField from "@/components/FormField";
+import FormField from "./FormField";
+
+const auth = getAuth(app);
+
+type FormType = "signin" | "signup";
 
 const authFormSchema = (type: FormType) => {
   return z.object({
@@ -44,27 +48,64 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
       if (type === "signup") {
+        const { name, email, password } = data;
+
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+        // Call your API route for sign up
+        const response = await fetch("/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            uid: userCredential.user.uid,
+            name,
+            email,
+            password,
+          }),
+        });
+        const result = await response.json();
+
+        if (!result.success) {
+          toast.error(result.message);
+          return;
+        }
+
         toast.success("Account created successfully. Please sign in.");
-        router.push("/signin");
-        // //   } else {
-        // //     const { email, password } = data;
+        router.push("/sign-in");
+      } else {
+        const { email, password } = data;
 
-        // //     const userCredential = await signInWithEmailAndPassword(
-        // //       auth,
-        // //       email,
-        // //       password
-        // //     );
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-        //     const idToken = await userCredential.user.getIdToken();
-        // if (!idToken) {
-        //   toast.error("Sign in Failed. Please try again.");
-        //   return;
-        // }
+        const idToken = await userCredential.user.getIdToken();
+        if (!idToken) {
+          toast.error("Sign in Failed. Please try again.");
+          return;
+        }
 
-        // await signIn({
-        //   email,
-        //   idToken,
-        // });
+        // Call your API route for sign in
+        const response = await fetch("/api/auth/signin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            idToken,
+          }),
+        });
+        const result = await response.json();
+
+        if (!result.success) {
+          toast.error(result.message);
+          return;
+        }
 
         toast.success("Signed in successfully.");
         router.push("/");
@@ -139,4 +180,3 @@ const AuthForm = ({ type }: { type: FormType }) => {
 };
 
 export default AuthForm;
-export type FormType = "signin" | "signup";
