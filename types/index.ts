@@ -71,7 +71,7 @@ interface GetLatestInterviewsParams {
   limit?: number;
 }
 
-type FormType = "sign-in" | "sign-up";
+type FormType = "signin" | "signup";
 
 interface InterviewFormProps {
   interviewId: string;
