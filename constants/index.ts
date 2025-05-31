@@ -255,7 +255,7 @@ export const generator: CreateWorkflowDTO = {
         },
       },
       tool: {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}api/auth/vapi/generate`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/vapi/generate`,
         body: {
           type: "object",
           required: ["level", "amount", "techstack", "role", "type", "userid"],

@@ -22,7 +22,7 @@ interface SavedMessage {
 
 const Agent = ({
   userName,
-  userId,
+  userid,
   interviewId,
   feedbackId,
   type,
@@ -83,7 +83,7 @@ const Agent = ({
 
   useEffect(() => {
     if (callStatus === CallStatus.FINISHED) router.push("/");
-  }, [messages, callStatus, type, userId]);
+  }, [messages, callStatus, type, userid]);
   // pickup the last message content
   const latestMessage = messages[messages.length - 1]?.content;
 
@@ -98,7 +98,7 @@ const Agent = ({
       {
         variableValues: {
           username: userName,
-          userid: userId,
+          userid: userid,
         },
       },
       undefined,

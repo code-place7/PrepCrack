@@ -49,7 +49,7 @@ interface InterviewCardProps {
 
 interface AgentProps {
   userName: string;
-  userId?: string;
+  userid?: string;
   interviewId?: string;
   feedbackId?: string;
   type: "generate" | "interview";
