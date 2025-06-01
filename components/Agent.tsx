@@ -82,7 +82,31 @@ const Agent = ({
   }, []);
 
   useEffect(() => {
-    if (callStatus === CallStatus.FINISHED) router.push("/");
+    const handleGenerateFeedback = async (messages: SavedMessage[]) => {
+      console.log("handleGenerateFeedback");
+
+      const { success, feedbackId: id } = await createFeedback({
+        interviewId: interviewId!,
+        userId: userid!,
+        transcript: messages,
+        feedbackId,
+      });
+
+      if (success && id) {
+        router.push(`/interview/${interviewId}/feedback`);
+      } else {
+        console.log("Error saving feedback");
+        router.push("/");
+      }
+    };
+
+    if (callStatus === CallStatus.FINISHED) {
+      if (type === "generate") {
+        router.push("/");
+      } else {
+        handleGenerateFeedback(messages);
+      }
+    }
   }, [messages, callStatus, type, userid]);
   // pickup the last message content
   const latestMessage = messages[messages.length - 1]?.content;
@@ -93,17 +117,32 @@ const Agent = ({
   const handleConnectCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
 
-    await vapi.start(
-      undefined,
-      {
-        variableValues: {
-          username: userName,
-          userid: userid,
+    if (type === "generate") {
+      await vapi.start(
+        undefined,
+        {
+          variableValues: {
+            username: userName,
+            userid: userid,
+          },
         },
-      },
-      undefined,
-      generator
-    );
+        undefined,
+        generator
+      );
+    } else {
+      let formattedQuestions = "";
+      if (questions) {
+        formattedQuestions = questions
+          .map((question) => `- ${question}`)
+          .join("\n");
+      }
+
+      await vapi.start(interviewer, {
+        variableValues: {
+          questions: formattedQuestions,
+        },
+      });
+    }
   };
 
   const handleDisconnect = () => {
