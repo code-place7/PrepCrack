@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PrepCrack
+
+PrepCrack is an AI-powered interview preparation platform that enables users to practice real job interviews and receive instant, structured feedback. Built with [Next.js](https://nextjs.org), it leverages advanced AI models to simulate interviews and provide actionable insights for improvement.
+
+## Features
+
+- 🎤 **AI Voice Interviewer:** Practice interviews with a conversational AI that asks role-specific questions.
+- 📝 **Instant Feedback:** Receive detailed, category-based feedback and scores after each interview.
+- 💼 **Role & Tech Stack Customization:** Tailor interviews to specific roles, experience levels, and technologies.
+- 📊 **Interview History:** Track your progress and review feedback from past interviews.
+- 👥 **Community Interviews:** Access and take interviews created by other users.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18 or higher recommended)
+- npm, yarn, pnpm, or bun
+- Firebase project with Firestore and Authentication enabled
+- API keys for [Vapi AI](https://vapi.ai), [Google AI](https://ai.google.com), and [Deepgram](https://deepgram.com) (for voice and transcription features)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/your-username/prepcrack.git
+   cd prepcrack
+   ```
 
-## Learn More
+2. **Install dependencies:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Configure environment variables:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   Create a `.env.local` file in the root directory and add the following (replace with your actual credentials):
 
-## Deploy on Vercel
+   ```
+   NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_token
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   FIREBASE_PROJECT_ID=your_firebase_project_id
+   FIREBASE_CLIENT_EMAIL=your_firebase_client_email
+   FIREBASE_PRIVATE_KEY=your_firebase_private_key
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Run the development server:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+5. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+
+## Project Structure
+
+- `app/` – Next.js app directory (routes, layouts, pages)
+- `components/` – Reusable React components
+- `constants/` – Static data and configuration
+- `firebase/` – Firebase client and admin setup
+- `lib/` – Utility functions and server actions
+- `types/` – TypeScript type definitions
+- `public/` – Static assets (images, icons, etc.)
+
+## Customization
+
+- **Interview Questions:** The AI generates questions based on the selected role, level, and tech stack.
+- **Feedback Categories:** Feedback is structured into communication, technical knowledge, problem-solving, cultural fit, and confidence.
+
+## Contributing
+
+Contributions are welcome! Please open issues or submit pull requests for improvements and bug fixes.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org)
+- [Vapi AI](https://vapi.ai)
+- [Google AI](https://ai.google.com)
+- [Deepgram](https://deepgram.com)
+- [Firebase](https://firebase.google.com)
