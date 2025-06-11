@@ -1,8 +1,37 @@
 # PrepCrack
 
-PrepCrack is an AI-powered interview preparation platform that enables users to practice real job interviews and receive instant, structured feedback. Built with [Next.js](https://nextjs.org), it leverages advanced AI models to simulate interviews and provide actionable insights for improvement.
+<p align="center">
+  <img src="public/robot.png" alt="PrepCrack Logo" width="120" /> 
+</p>
 
-## Features
+<h1 align="center">🚀 PrepCrack</h1>
+<p align="center">
+  <b>AI-powered interview preparation platform</b><br>
+  <img src="https://img.shields.io/badge/Next.js-000?logo=next.js&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=fff" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" />
+  <img src="https://img.shields.io/badge/Tailwind-38BDF8?logo=tailwindcss&logoColor=fff" />
+</p>
+
+<p align="center">
+  <a href="#-features">✨ Features</a> •
+  <a href="#-quickstart">⚡ Quickstart</a> •
+  <a href="#-project-structure">📁 Project Structure</a> •
+  <a href="#-customization">🛠️ Customization</a> •
+  <a href="#-contributing">🤝 Contributing</a> •
+  <a href="#-license">📝 License</a>
+</p>
+
+---
+
+## ✨ Features
+
+<p align="center">
+  <img src="https://img.icons8.com/color/48/nextjs.png" title="Next.js" />
+  <img src="https://img.icons8.com/color/48/firebase.png" title="Firebase" />
+  <img src="https://img.icons8.com/color/48/typescript.png" title="TypeScript" />
+  <img src="https://img.icons8.com/color/48/tailwindcss.png" title="Tailwind CSS" />
+</p>
 
 - 🎤 **AI Voice Interviewer:** Practice interviews with a conversational AI that asks role-specific questions.
 - 📝 **Instant Feedback:** Receive detailed, category-based feedback and scores after each interview.
@@ -10,41 +39,25 @@ PrepCrack is an AI-powered interview preparation platform that enables users to 
 - 📊 **Interview History:** Track your progress and review feedback from past interviews.
 - 👥 **Community Interviews:** Access and take interviews created by other users.
 
-## Getting Started
+---
 
-### Prerequisites
+## ⚡ Quickstart
 
-- Node.js (v18 or higher recommended)
-- npm, yarn, pnpm, or bun
-- Firebase project with Firestore and Authentication enabled
-- API keys for [Vapi AI](https://vapi.ai), [Google AI](https://ai.google.com), and [Deepgram](https://deepgram.com) (for voice and transcription features)
+```bash
+git clone https://github.com/your-username/prepcrack.git
+cd prepcrack
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
 
-### Installation
+1. **Configure `.env.local`:**
 
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/your-username/prepcrack.git
-   cd prepcrack
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
-
-3. **Configure environment variables:**
-
-   Create a `.env.local` file in the root directory and add the following (replace with your actual credentials):
-
-   ```
+   ```env
    NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_token
    NEXT_PUBLIC_BASE_URL=http://localhost:3000
    FIREBASE_PROJECT_ID=your_firebase_project_id
@@ -52,7 +65,7 @@ PrepCrack is an AI-powered interview preparation platform that enables users to 
    FIREBASE_PRIVATE_KEY=your_firebase_private_key
    ```
 
-4. **Run the development server:**
+2. **Run the app:**
 
    ```bash
    npm run dev
@@ -64,9 +77,11 @@ PrepCrack is an AI-powered interview preparation platform that enables users to 
    bun dev
    ```
 
-5. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+3. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 - `app/` – Next.js app directory (routes, layouts, pages)
 - `components/` – Reusable React components
@@ -76,23 +91,36 @@ PrepCrack is an AI-powered interview preparation platform that enables users to 
 - `types/` – TypeScript type definitions
 - `public/` – Static assets (images, icons, etc.)
 
-## Customization
+---
+
+## 🛠️ Customization
 
 - **Interview Questions:** The AI generates questions based on the selected role, level, and tech stack.
 - **Feedback Categories:** Feedback is structured into communication, technical knowledge, problem-solving, cultural fit, and confidence.
 
-## Contributing
+---
 
-Contributions are welcome! Please open issues or submit pull requests for improvements and bug fixes.
+---
 
-## License
+🖼️ Screenshots
 
-This project is licensed under the MIT License.
+<p align="center"> <img src="public/home.png" width="350" alt="prepcrack Screenshot 1" /> <img src="public/generation.png" width="350" alt="prepcrack Screenshot 2" /> <img src="public/feedback.png" width="350" alt="prepcrack Screenshot 2" /> </p>
 
-## Acknowledgements
+---
 
-- [Next.js](https://nextjs.org)
-- [Vapi AI](https://vapi.ai)
-- [Google AI](https://ai.google.com)
-- [Deepgram](https://deepgram.com)
-- [Firebase](https://firebase.google.com)
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!  
+Feel free to check [issues page](../../issues) or submit a pull request.
+
+---
+
+## 📝 License
+
+MIT License © [code-place7](https://github.com/code-place7)
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ using Next.js, Firebase, and AI APIs</sub>
+</p>
