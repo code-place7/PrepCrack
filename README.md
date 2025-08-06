@@ -1,3 +1,4 @@
+<div align="center">
 # PrepCrack
 
 <p align="center">
@@ -12,6 +13,7 @@
   <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" />
   <img src="https://img.shields.io/badge/Tailwind-38BDF8?logo=tailwindcss&logoColor=fff" />
 </p>
+</div>
 
 <p align="center">
   <a href="#-features">✨ Features</a> •
@@ -110,17 +112,23 @@ bun install
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!  
-Feel free to check [issues page](../../issues) or submit a pull request.
+Pull requests are welcome!
+For major changes, please open an issue first to discuss what you would like to change.
+
+## 📞 Contact
+
+Have questions or suggestions? Reach out to us:
+
+- **Email**: monumandel3@gmail.com
 
 ---
 
-## 📝 License
-
-MIT License © [code-place7](https://github.com/code-place7)
-
----
-
+<div align="center">
+  
+### ⭐ Star us on GitHub — it helps!
 <p align="center">
-  <sub>Built with ❤️ using Next.js, Firebase, and AI APIs</sub>
+ 👨‍💻 Author
+Monu Mandal 
 </p>
+
+</div>
