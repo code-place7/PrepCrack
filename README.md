@@ -1,5 +1,4 @@
 <div align="center">
-# PrepCrack
 
 <p align="center">
   <img src="public/robot.png" alt="PrepCrack Logo" width="120" /> 
